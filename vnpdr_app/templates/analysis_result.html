@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+{% block content%}
+    <h1>Car Analysis Result</h1>
+    <table border="1">
+        <tr>
+            <th>License Plate Number</th>
+            <td>{{ plate_text }}</td>
+        </tr>
+        <tr>
+            <th>Car Model</th>
+            <td>{{ car_model }}</td>
+        </tr>
+        <tr>
+            <th>Car Type</th>
+            <td>{{ car_type }}</td>
+        </tr>
+        <tr>
+            <th>Car Color</th>
+            <td>{{ car_color }}</td>
+        </tr>
+        <tr>
+            <th>Plate Origin Country</th>
+            <td>{{ plate_origin_country }}</td>
+        </tr>
+    </table>
+{% endblock %}
