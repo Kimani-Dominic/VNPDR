@@ -9,12 +9,41 @@ import numpy as np
 def detect_license_plate(image):
     # Load pre-trained YOLOv3 model
     # path Object-Detection---Yolov3-master/model/yolov3.weights
-    model = cv2.dnn.readNet(' Object-Detection---Yolov3-master/model/yolov3.weights', ' Object-Detection---Yolov3-master/model/yolov3.h5')
+    weights_path = 'darknet/yolov3.weights'
+    config_path = 'darknet/cfg/yolov3.cfg'
+    model = cv2.dnn.readNet('darknet/yolov3.weights', 'darknet/cfg/yolov3.cfg')
     classes = []
-    with open('coco.names', 'r') as f:
+    with open('darknet/data/coco.names', 'r') as f:
         classes = [line.strip() for line in f.readlines()]
-    layer_names = model.getLayerNames()
-    output_layers = [layer_names[i[0] - 1] for i in model.getUnconnectedOutLayers()]
+    layer_names = model.getLayerNames()  
+    # Extract output layer names
+    output_layers = model.getUnconnectedOutLayers()
+    if output_layers:
+       output_layers = [layer_names[i[0] - 1] for i in output_layers]
+    else:
+    # Handle the case when output_layers is empty
+    # You may log a warning or raise an exception, depending on your requirements
+        print("Warning: No unconnected output layers found.")
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     # Resize image to match model input size
     blob = cv2.dnn.blobFromImage(image, 0.00392, (416, 416), (0, 0, 0), True, crop=False)
