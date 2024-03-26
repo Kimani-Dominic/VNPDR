@@ -8,7 +8,8 @@ import numpy as np
 # License plate detection function using YOLOv3
 def detect_license_plate(image):
     # Load pre-trained YOLOv3 model
-    model = cv2.dnn.readNet('yolov3.weights', 'yolov3.cfg')
+    # path Object-Detection---Yolov3-master/model/yolov3.weights
+    model = cv2.dnn.readNet(' Object-Detection---Yolov3-master/model/yolov3.weights', ' Object-Detection---Yolov3-master/model/yolov3.h5')
     classes = []
     with open('coco.names', 'r') as f:
         classes = [line.strip() for line in f.readlines()]
